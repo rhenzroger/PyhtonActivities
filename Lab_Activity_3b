@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+vectA = np.array([-3,3])
+vectB = np.array([-3,-3])
+
+A = np.arange(-5,5,3)
+B = np.arange(-4,5,1)
+C = np.arange(-3,5,1)
+
+Scal1, Scal2 = np.meshgrid(A,A)
+Scal3, Scal4 = np.meshgrid(B,B)
+Scal5, Scal6 = np.meshgrid(C,C)
+vectR = vectA + vectB
+
+spanRx1 = Scal1*vectA[0] + Scal2*vectB[0]
+spanRy1 = Scal1*vectA[1] + Scal2*vectB[1]
+
+spanRx2 = Scal3*vectA[1] + Scal4*vectB[1]
+spanRy2 = Scal3*vectA[0] + Scal4*vectB[0]
+
+spanRx3 = Scal5*vectA[0] + Scal6*vectB[0]
+spanRy3 = Scal5*vectA[1] + Scal6*vectB[1]
+
+plt.scatter(spanRx1,spanRy1, s=15, alpha=1, c='darkorange')
+plt.scatter(spanRx2,spanRy2, s=15, alpha=1, c='darkolivegreen')
+plt.scatter(spanRx3,spanRy3, s=15, alpha=1, c='dodgerblue')
+
+plt.xlim(-70, 70)
+plt.ylim(-70, 70)
+
+plt.axhline(y=0, color='k')
+plt.axvline(x=0, color='k')
+plt.grid()
+plt.show()
